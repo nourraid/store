@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2022 at 01:07 PM
+-- Generation Time: May 03, 2022 at 03:59 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -33,13 +33,6 @@ CREATE TABLE `admins` (
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `admins`
---
-
-INSERT INTO `admins` (`id`, `name`, `password`) VALUES
-(4, 'nada', '202cb962ac59075b964b07152d234b70');
-
 -- --------------------------------------------------------
 
 --
@@ -52,6 +45,13 @@ CREATE TABLE `category` (
   `image_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `title`, `image_name`) VALUES
+(1, 'man', '../images/category/man.jpeg');
+
 -- --------------------------------------------------------
 
 --
@@ -61,7 +61,7 @@ CREATE TABLE `category` (
 CREATE TABLE `clothes` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `description` int(11) NOT NULL,
+  `description` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
   `color` varchar(255) NOT NULL,
   `size` varchar(255) NOT NULL,
@@ -70,6 +70,13 @@ CREATE TABLE `clothes` (
   `cat_id` int(11) NOT NULL,
   `image_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `clothes`
+--
+
+INSERT INTO `clothes` (`id`, `title`, `description`, `price`, `color`, `size`, `featured`, `active`, `cat_id`, `image_name`) VALUES
+(1, 'shose', 'jhjcccccccccccc', 2, 'Brouwn', 'L', 'Yes', 'Yes', 1, '../images/clothes/shose.jpeg');
 
 -- --------------------------------------------------------
 
@@ -85,14 +92,6 @@ CREATE TABLE `users` (
   `phone` int(11) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `address`, `password`, `phone`, `email`) VALUES
-(1, 'nada', 'gaza', '202cb962ac59075b964b07152d234b70', 599810032, 'nada@gmail.com'),
-(2, 'nour', 'gaza', '202cb962ac59075b964b07152d234b70', 592212481, 'nour@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -131,25 +130,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `clothes`
 --
 ALTER TABLE `clothes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
