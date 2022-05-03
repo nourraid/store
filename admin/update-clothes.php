@@ -7,14 +7,14 @@ if(isset($_GET['id'])){
     $res=mysqli_query($conn,$sql);
     if($res && $res->num_rows>0){
         $row=$res->fetch_assoc();
-        $title_old =$row['title'];
-        $featured_old =$row['featured'];
-        $active_old=$row['active'];
-        $category_old = $row['cat_id'];
-        $price_old=$row['price'];
-        $description_old=$row['description'];
-        $size_old =$row['size'];
-        $color_old =$row['color'];
+        $title =$row['title'];
+        $featured =$row['featured'];
+        $active=$row['active'];
+        $category = $row['cat_id'];
+        $price=$row['price'];
+        $description=$row['description'];
+        $size =$row['size'];
+        $color =$row['color'];
         $old_image_name = $row['image_name'];
 
 
@@ -47,11 +47,12 @@ if(isset($_POST['submit'])){
         $image_name= $old_image_name;
     }
 
-    $sqll="update clothes set title='$title',featured='$featured',active='$active',
+
+    $sql="update clothes set title='$title',featured='$featured',active='$active',
                    image_name='$image_name',price='$price',description='$description',
-                   cat_id=$category,color='$color',size='$size' where id = $id";
-    $ress=mysqli_query($conn,$sqll);
-    if($ress){
+                   cat_id='$category',color='$color',size='$size' where id = $id";
+    $res=mysqli_query($conn,$sql);
+    if($res){
         $_SESSION['clothes']="<div class='success'>clothes is updated</div>";
         header("location:manage-clothes.php");
     }else{
@@ -68,42 +69,42 @@ if(isset($_POST['submit'])){
             <h1>Update clothes</h1>
             <br><br>
 
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="POST" enctype="multipart/form-data">
 
                 <table class="tbl-30">
 
                     <tr>
                         <td>Title:</td>
                         <td>
-                            <input type="text" name="title" value="<?php echo $title_old; ?>">
+                            <input type="text" name="title" value="<?php echo $title; ?>">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Description:</td>
                         <td>
-                            <textarea name="description" cols="30" rows="5"><?php echo $description_old; ?></textarea>
+                            <textarea name="description" cols="30" rows="5"><?php echo $description; ?></textarea>
                         </td>
                     </tr>
 
                     <tr>
                         <td>Price:</td>
                         <td>
-                            <input type="number" name="price" value="<?php echo $price_old; ?>">
+                            <input type="number" name="price" value="<?php echo $price; ?>">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Color: </td>
                         <td>
-                            <input type="text" name="color" placeholder="Color of the clothes" value="<?php echo $color_old; ?>">
+                            <input type="text" name="color" placeholder="Color of the clothes" value="<?php echo $color; ?>">
                         </td>
                     </tr>
 
                     <tr>
                         <td>Size: </td>
                         <td>
-                            <input type="text" name="size" placeholder="Size of the clothes" value="<?php echo $size_old; ?>">
+                            <input type="text" name="size" placeholder="Size of the clothes" value="<?php echo $size; ?>">
                         </td>
                     </tr>
 
@@ -131,9 +132,9 @@ if(isset($_POST['submit'])){
                                 $res=mysqli_query($conn,$sql);
                                 if ($res && $res->num_rows>0){
                                     while ($category=$res->fetch_assoc()){
-                                        $cat_id_old=$category['id'];
-                                        $titl=$category['title'];
-                                        echo"<option value='$cat_id_old'>$titl</option>";
+                                        $cat_id=$category['id'];
+                                        $title=$category['title'];
+                                        echo"<option value='$cat_id'>$title</option>";
                                     }}else{
                                     echo "<option value='0'>No Category Found</option>";
 
@@ -146,16 +147,16 @@ if(isset($_POST['submit'])){
                     <tr>
                         <td>Featured:</td>
                         <td>
-                            <input type="radio" name="featured" value="Yes" <?php echo ($featured_old=="Yes")? "checked":""; ?>> Yes
-                            <input type="radio" name="featured" value="No" <?php echo ($featured_old=="No")? "checked":""; ?>> No
+                            <input type="radio" name="featured" value="Yes" <?php echo ($featured=="Yes")? "checked":""; ?>> Yes
+                            <input type="radio" name="featured" value="No" <?php echo ($featured=="No")? "checked":""; ?>> No
                         </td>
                     </tr>
 
                     <tr>
                         <td>Active:</td>
                         <td>
-                            <input type="radio" name="active" value="Yes" <?php echo ($active_old=="Yes")? "checked":""; ?>> Yes
-                            <input type="radio" name="active" value="No" <?php echo ($active_old=="No")? "checked":""; ?>> No
+                            <input type="radio" name="active" value="Yes" <?php echo ($active=="Yes")? "checked":""; ?>> Yes
+                            <input type="radio" name="active" value="No" <?php echo ($active=="No")? "checked":""; ?>> No
                         </td>
                     </tr>
 
