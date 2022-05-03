@@ -1,5 +1,6 @@
 <?php
 include ('config/constants.php');
+include "check_login.php";
 ?>
 
 <!DOCTYPE HTML>
@@ -78,8 +79,6 @@ include ('config/constants.php');
                             <li><a href="Categoies.php">Categoies</a></li>
                             <li><a href="about.php">About</a></li>
                             <li><a href="contact.php">Contact</a></li>
-                            <li><a href="SginUp.php"> Sgin Up</a></li>
-                            <li><a href="signin.php"> Sgin In</a></li>
                             <li><a href="logouts.php"> LogOut</a></li>
                         </ul>
                     </div>
