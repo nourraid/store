@@ -49,11 +49,11 @@ if($res->num_rows>0){
 							<div class="row">
 								<div class="col-md-5">
 									<div class="product-entry">
-										<div class="product-img" style="background-image: url('<?php echo $image_name;?>');"></div>
+                                        <img src='<?php echo $image_name;?>' style=" width: 474px; height: 446px;">
 									</div>
 								</div>
 								<div class="col-md-7">
-									<div class="desc">
+									<div class="desc" style="margin-left: 76px; margin-top: 50px;">
 										<h3><?php echo $title;?></h3>
 										<p class="price">
 											<span>$ <?php echo $price;?></span>

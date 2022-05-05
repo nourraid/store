@@ -120,13 +120,16 @@ if(isset($_POST['submit'])){
     $description=$_POST['description'];
     $size =$_POST['size'];
     $color =$_POST['color'];
-
+    $sqll="select id from clothes";
+    $ress = mysqli_query($conn , $sqll);
+    $counter = $ress->num_rows ;
+    $counter += 1 ;
     if(isset($_FILES['image']['name']) && $_FILES['image']['name']!=""){
         $name=$_FILES['image']['name'];
         $temp=$_FILES['image']['tmp_name'];
         $ext=explode(".",$name);
         $ext=end($ext);
-        $image_name="../images/clothes/".$title.".".$ext;
+        $image_name="../images/clothes/".$counter.".".$ext;
         move_uploaded_file($temp,$image_name);
 
     }else{
