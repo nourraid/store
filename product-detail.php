@@ -71,7 +71,6 @@ if($res->num_rows>0){
 												<?php echo $size;?>
 											</p>
 										</div>
-										<p><a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>
 									</div>
 								</div>
 							</div>
