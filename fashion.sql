@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2022 at 03:59 PM
+-- Generation Time: May 05, 2022 at 04:47 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -33,6 +33,13 @@ CREATE TABLE `admins` (
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `password`) VALUES
+(2, 'nada', '202cb962ac59075b964b07152d234b70');
+
 -- --------------------------------------------------------
 
 --
@@ -50,7 +57,9 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `title`, `image_name`) VALUES
-(1, 'man', '../images/category/man.jpeg');
+(5, 'MAN', '../images/category/MAN.jpg'),
+(6, 'KIDS', '../images/category/Kids.avif'),
+(7, 'WOMAN', '../images/category/WOMAN.jpg');
 
 -- --------------------------------------------------------
 
@@ -76,7 +85,20 @@ CREATE TABLE `clothes` (
 --
 
 INSERT INTO `clothes` (`id`, `title`, `description`, `price`, `color`, `size`, `featured`, `active`, `cat_id`, `image_name`) VALUES
-(1, 'shose', 'jhjcccccccccccc', 2, 'Brouwn', 'L', 'Yes', 'Yes', 1, '../images/clothes/shose.jpeg');
+(10, 'LOT Baby Rompers Short Sleeve 100%Cotton', 'Baby Rompers Short Sleeve\r\nAvailable in several colors, comfortable to wear\r\nIt can be worn on many occasions\r\nIt can be ordered now from our store in the right size and color', 15, 'white', 's', 'Yes', 'Yes', 6, '../images/clothes/1.avif'),
+(11, 'Long Sleeve Tops Floral Print Pants Headband', 'Long Sleeve Tops Floral Print Pants Headband\r\nAvailable in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 150, 'red', 's', 'Yes', 'Yes', 6, '../images/clothes/2.webp'),
+(12, ' Socks For Newborns', ' Socks For Newborns\r\nAvailable in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 50, 'Pink', 's', 'Yes', 'Yes', 6, '../images/clothes/3.webp'),
+(13, 'baby suit girl', 'baby suit girl\r\nAvailable in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 120, 'Pink', 's', 'Yes', 'Yes', 6, '../images/clothes/4.avif'),
+(14, 'Casual wear for everyday wear', 'Casual wear for everyday wear\r\nAvailable in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 350, 'red', 'M', 'Yes', 'Yes', 7, '../images/clothes/Casual wear for everyday wear.jpeg'),
+(16, 'Full outfit for winter', 'Full outfit for winter\r\nAvailable in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 400, 'gray', 'M', 'Yes', 'Yes', 7, '../images/clothes/7.jpeg'),
+(17, 'Full outfit for winter', 'Full outfit for winter Available in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 450, 'white', 'M', 'Yes', 'Yes', 7, '../images/clothes/8.jpeg'),
+(18, 'Casual wear for everyday wear	', 'Casual wear for everyday wear	 Available in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 500, 'Brouwn', 'M', 'Yes', 'Yes', 7, '../images/clothes/9.avif'),
+(19, 'Oversize Recycled Cotton Blend Cardigan', 'Oversize Recycled Cotton Blend Cardigan\r\n Available in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 350, 'gray', 'XL', 'Yes', 'Yes', 5, '../images/clothes/10.avif'),
+(20, 'casual suit', 'casual suit\r\nAvailable in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 250, 'white & gray', 'L', 'Yes', 'Yes', 5, '../images/clothes/11.jpeg'),
+(21, 'casual suit for every day user', 'casual suit\r\nAvailable in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 300, 'Brouwn & Red', 'L', 'Yes', 'Yes', 5, '../images/clothes/12.jpeg'),
+(22, 'Long Sleeve T-Shirt', 'Long Sleeve T-Shirt\r\nAvailable in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 170, 'white', 'XL', 'Yes', 'Yes', 5, '../images/clothes/13.avif'),
+(23, 'Jeans with a T-shirt', 'Jeans with a T-shirt\r\n Available in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 120, 'black', 's', 'Yes', 'Yes', 6, '../images/clothes/14.avif'),
+(24, 'Full outfit for summer', 'Full outfit for summer Available in several colors, comfortable to wear It can be worn on many occasions It can be ordered now from our store in the right size and color	', 300, 'yellow', 'M', 'Yes', 'Yes', 7, '../images/clothes/15.jpeg');
 
 -- --------------------------------------------------------
 
@@ -92,6 +114,13 @@ CREATE TABLE `users` (
   `phone` int(11) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `address`, `password`, `phone`, `email`) VALUES
+(1, 'nada', 'gaza', '202cb962ac59075b964b07152d234b70', 592212481, 'nada@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -130,25 +159,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `clothes`
 --
 ALTER TABLE `clothes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
