@@ -10,7 +10,7 @@ if(isset($_GET['id'])){
         $title =$row['title'];
         $featured =$row['featured'];
         $active=$row['active'];
-        $category = $row['cat_id'];
+        $category_id = $row['cat_id'];
         $price=$row['price'];
         $description=$row['description'];
         $size =$row['size'];
@@ -134,8 +134,14 @@ if(isset($_POST['submit'])){
                                     while ($category=$res->fetch_assoc()){
                                         $cat_id=$category['id'];
                                         $title=$category['title'];
-                                        echo"<option value='$cat_id'>$title</option>";
-                                    }}else{
+
+                                        if($category_id == $cat_id){
+                                            echo"<option value='$cat_id' selected>$title</option>";
+                                        }else{
+                                            echo"<option value='$cat_id'>$title</option>";
+                                        }
+                                    }
+                                }else{
                                     echo "<option value='0'>No Category Found</option>";
 
                                 }
